@@ -1,0 +1,42 @@
+{% extends "metadatos.html" %}
+{% block contentmetadatos %}
+         
+         
+                        <div class="card-header bg-info py-3">
+                            <h6 class="m-0 font-weight-bold text-white"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i> Reglas</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Nombre index</th>
+                                            <th>Esquema</th>
+                                            <th>Nombre de tabla</th>                                    
+                                            <th>Nombre de columna</th>
+                                            <th>Comentario</th>
+                                           
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for metadatos in object_list %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{metadatos.aliasconxion}}</td>
+                                            <td>{{metadatos.nomhost}}</td>
+                                            <td>{{metadatos.nompuerto}}</td>
+                                            <td>{{metadatos.nombd}}</td>
+                                         
+                                          
+
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                  
+
+
+                    {% endblock %}

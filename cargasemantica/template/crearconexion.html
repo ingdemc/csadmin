@@ -1,0 +1,112 @@
+{% extends "dashboard.html" %}
+{% block  title %} CS Admin - crearconexion
+{% endblock %}
+ 
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container-fluid">
+
+                  
+    <h1 class="h3 mb-2 text-gray-800">Crear conexion</h1>
+   
+
+ 
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Nueva conexion</h6>
+        </div>
+   
+   
+        <div class="card-body">
+    <form method="post" class="user" >
+        {% csrf_token %}
+          
+     {{form | crispy}}
+     
+         <button type="submit" class="btn btn-danger btn-user btn-block" value="login">Entrar</button>
+        </form>
+      {% comment %} <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <label class="small mb-1" for="inputNotificationEmail">Alias de conexion</label>
+                 <input type="text" class="form-control " id="id_aliasconxion" name="{{form.aliasconxion.name}}"
+                    placeholder="Alias de conexion"> 
+                    {{ form.aliasconxion }}
+                    
+                    
+            </div>
+            <div class="col-sm-6">
+                <label class="small mb-1" for="inputNotificationEmail">Comentario</label>
+                 <input type="text" class="form-control " id="id_comentariobd" name="{{form.comentariobd.name}}"
+                    placeholder="Comentario"> 
+
+                    {{ form.comentariobd }}
+            </div>
+        </div> 
+       
+       
+        </div>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Datos de conexion</h6>
+        </div>
+        
+        <div class="card-body">
+
+    <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <label class="small mb-1" for="inputNotificationEmail">Nombre host</label>
+             <input type="text" class="form-control " id="id_nomhost" name="{{form.nomhost.name}}"
+                placeholder="localhost"> 
+                {{ form.nomhost }}
+        </div>
+        <div class="col-sm-6">
+            <label class="small mb-1" for="inputNotificationEmail">Puerto</label>
+             <input type="text" class="form-control " id="id_nompuerto" name="{{form.nompuerto.name}}"
+                placeholder="5432"> 
+
+                {{ form.nompuerto }}
+        </div>
+    </div>
+
+
+    <div class="mb-3">
+        <label class="small mb-1" for="nombd">Nombre de la base de datos</label>
+         <input class="form-control" name="{{form.nombd.name}}" id="id_nombd" type="text" placeholder="Nombre de la base de datos"> 
+        {{ form.nombd }}
+
+        
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-6 mb-3 mb-sm-0">
+            <label class="small mb-1" for="usuario">Usuario</label>
+             <input type="text" class="form-control " id="id_username" name="{{form.username.name}}"
+                placeholder="Ingresa usuario"> 
+                {{ form.usuario }}
+
+
+        </div>
+        <div class="col-sm-6">
+            <label class="small mb-1" for="contraseña">Contraseña</label>
+             <input class="form-control" id="id_password" name="{{form.password.name}}" type="password" placeholder="Ingresa contraseña"> 
+            {{ form.passw }}
+        </div>
+    </div>
+
+ <button class="btn btn-success btn-block"  type="submit">Crear conexion</button>  
+ <input type="submit" class="btn btn-success btn-block"  value="Submit"> 
+<button type="submit" class="btn btn-danger btn-user btn-block" value="login">Entrar</button> {% endcomment %}
+
+
+
+</div>
+</div>
+
+
+
+
+
+</div>
+{% endblock %}

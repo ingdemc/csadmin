@@ -1,0 +1,42 @@
+
+{% extends "metadatos.html" %}
+{% block contentmetadatos %}
+        
+                            <div class="card-header bg-danger py-3">
+                                
+                                <h6 class="m-0 font-weight-bold text-white"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i>   Tablas</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre base de datos</th>
+                                                <th>Esquema</th>
+                                                <th>Nombre de la tabla </th>
+                                                <th>Tipo de tabla</th>
+                                                
+                                               
+    
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for metadatos in object_list %}
+                                            <tr>
+                                                <td>{{forloop.counter}}</td>
+                                                <td>{{metadatos.aliasconxion}}</td>
+                                                <td>{{metadatos.nomhost}}</td>
+                                                <td>{{metadatos.nompuerto}}</td>
+                                                                                       
+                                                
+                                              
+    
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                       {% endblock %}
+
+
