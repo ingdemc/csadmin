@@ -44,7 +44,12 @@
                                             <td>{{metadatos.comentariobd}}</td>
                                             <td>{{metadatos.fechacreacion}}</td>
                                             <td class="centrado">
-                                                <a href="../schema/{{metadatos.id}}" class="btn btn-sm btn-block btn-info">Editar</a>
+                                                <p>imprension</p>
+                                                <a href="/recursividad/schema/{{metadatos.id}}" class="btn btn-sm btn-block btn-info">Editar</a>
+
+                                               {% comment %}  cambio{% endcomment %}
+                                               <p>imprension    {{metadatos.id}}  </p>
+                                             
                                                 <!-- <a href="http://127.0.0.1:8000/eliminacion/{{metadatos.id}}" class="btn btn-sm btn-block btn-danger btnEliminacion">Eliminar</a> -->
                                                 <a href="../eliminacion/{{metadatos.id}}" class="btn btn-sm btn-block btn-danger btnEliminacion">Eliminar</a>
                                             </td>

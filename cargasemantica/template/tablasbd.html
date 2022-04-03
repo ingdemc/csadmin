@@ -7,10 +7,12 @@
                                 <h6 class="m-0 font-weight-bold text-white"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i>   Tablas</h6>
                             </div>
                             <div class="card-body">
+                              
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
+                                                <th>N°</th>
                                                 <th>Nombre base de datos</th>
                                                 <th>Esquema</th>
                                                 <th>Nombre de la tabla </th>
@@ -21,18 +23,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {% for metadatos in object_list %}
+                                            {% for data in tablas_met %}
                                             <tr>
                                                 <td>{{forloop.counter}}</td>
-                                                <td>{{metadatos.aliasconxion}}</td>
-                                                <td>{{metadatos.nomhost}}</td>
-                                                <td>{{metadatos.nompuerto}}</td>
-                                                                                       
-                                                
-                                              
-    
-                                            </tr>
-                                            {% endfor %}
+                                                    {% for col in data %}
+                                                     <td>{{col}}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>

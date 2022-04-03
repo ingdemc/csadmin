@@ -4,10 +4,12 @@
                                 <h6 class="m-0 font-weight-bold text-white"> <i class="fas fa-comments fa-2x text-gray-300"></i>  Comentarios</h6>
                             </div>
                             <div class="card-body">
+                                
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
+                                                <th>N°</th>
                                                 <th>Esquema</th>
                                                 <th>Nombre de tabla</th>
                                                 <th>Nombre columna</th>
@@ -17,17 +19,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {% for metadatos in object_list %}
+                                            {% for metadatos in comentarios_met %}
                                             <tr>
                                                 <td>{{forloop.counter}}</td>
-                                                <td>{{metadatos.aliasconxion}}</td>
-                                                <td>{{metadatos.nomhost}}</td>
-                                                <td>{{metadatos.nompuerto}}</td>
-                                                <td>{{metadatos.nombd}}</td>
-                                            
-    
-                                            </tr>
-                                            {% endfor %}
+                                                    {% for col in metadatos %}
+                                                     <td>{{col}}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                {% endfor %}
                                         </tbody>
                                     </table>
                                 </div>

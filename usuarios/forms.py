@@ -1,7 +1,5 @@
 from django.contrib.auth import authenticate, get_user_model
 from django import forms
-from .models import Metadatos
-
 User = get_user_model()
 
 class UsersLoginForm(forms.Form):
@@ -31,27 +29,3 @@ class UsersLoginForm(forms.Form):
 				raise forms.ValidationError("El usuario no esta activo")
 
 		return super(UsersLoginForm, self).clean(*args, **keyargs)
-
-
-class metadatosf(forms.ModelForm):
-
-    class Meta:
-        model = Metadatos
-        fields = ['aliasconxion', 'comentariobd', 'nomhost', 'nompuerto', 'nombd', 'usuario', 'passw', 'fechacreacion']
-	
-# aliasconxion = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-# comentariobd = forms.CharField(widget=forms.NumberInput(attrs={'class': 'form-control'}))
-# nomhost = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-# nompuerto = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-# nombd = forms.CharField(widget=forms.NumberInput(attrs={'class': 'form-control'}))
-# usuario = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-# passw = forms.CharField(widget=forms.NumberInput(attrs={'class': 'form-control'}))
-# fechacreacion = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-
-		
-
-	
-
-
-
-

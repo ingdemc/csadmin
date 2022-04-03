@@ -3,19 +3,9 @@
 {% endblock %}
 
 {% block content %}
-         
-         <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Metadatos </h1>
                     <p class="mb-4">En este apartado encontraras los metadatos alojados en el sistema gestor de base de datos PostgreSQL </p>
-
-                      
-
-
-
-
-                    <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
+                <div class="row">
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
@@ -24,7 +14,7 @@
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Schema</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <a href="../metadatos/{{metadatos.id}}"  class="btn btn-sm btn-block btn-primary">Ver</a>
+                                                <a href="/recursividad/schema/{{metadatos.id}}"  class="btn btn-sm btn-block btn-primary">Ver</a>
 
                                             </div>
                                         </div>
@@ -46,7 +36,7 @@
                                                 Tablas</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 
-                                                <a href="../tablas/{{metadatos.id}}"  class="btn btn-danger btn-sm btn-block">Ver</a>
+                                                <a href="/recursividad/tablas/{{metadatos.id}}"  class="btn btn-danger btn-sm btn-block">Ver</a>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -67,7 +57,7 @@
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 
-                                                <a href="../reglas/{{metadatos.id}}"  class="btn btn-sm btn-block btn-info">Ver</a>
+                                                <a href="/recursividad/reglas/{{metadatos.id}}"  class="btn btn-sm btn-block btn-info">Ver</a>
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -86,7 +76,7 @@
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                                Comentarios</div>
                                             
-                                            <a href="../comentarios/{{metadatos.id}}"  class="btn btn-sm btn-block btn-warning">Ver</a>
+                                            <a href="/recursividad/comentarios/{{metadatos.id}}"  class="btn btn-sm btn-block btn-warning">Ver</a>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -96,6 +86,34 @@
                                 </div>
                             </div>
                         </div>
+
+{% comment %}                         
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                               diagrama</div>
+                                            
+                                            <a href="#"  class="btn btn-sm btn-block btn-warning">Ver</a>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+
+
+
+
+
+
+
+
                     </div>
 
                         <!-- DataTales Example -->

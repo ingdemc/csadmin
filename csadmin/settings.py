@@ -39,6 +39,8 @@ LOGOUT_REDIRECT= "/login"
 # Application definition
 
 INSTALLED_APPS = [
+    'soporte.apps.SoporteConfig',
+    'usuarios.apps.UsuariosConfig',
     'cargasemantica.apps.CargasemanticaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -66,7 +68,9 @@ ROOT_URLCONF = 'csadmin.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Diana/Desktop/cs-admin/csadmin-web/csadmin/cargasemantica/template'],
+        'DIRS': ['C:/Users/Diana/Desktop/cs-admin/csadmin-web/csadmin/cargasemantica/template',
+        'C:/Users/Diana/Desktop/cs-admin/csadmin-web/csadmin/soporte/template',
+        'C:/Users/Diana/Desktop/cs-admin/csadmin-web/csadmin/usuarios/template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,6 +82,7 @@ TEMPLATES = [
         },
     },
 ]
+ 
 
 WSGI_APPLICATION = 'csadmin.wsgi.application'
 
@@ -94,6 +99,7 @@ DATABASES = {
         'HOST': 'localhost',
         'DATABASE_PORT':'5432',
     }
+
     
 
 }
