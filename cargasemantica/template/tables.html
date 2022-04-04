@@ -16,14 +16,14 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
+                                    <thead >
                                         <tr>
-                                            <th>Id</th>
+                                            <th>N°</th>
                                             <th>Alias de conexion</th>
+                                            <th>Base de datos</th>
                                             <th>Host</th>
                                             <th>Puerto</th>
-                                            <th>Nombre base de datos</th>
                                             <th>Usuario</th>
                                             <th>Comentario</th>
                                             <th>Fecha</th>
@@ -34,22 +34,21 @@
                                     <tbody>
                                         {% for metadatos in object_list %}
                                         <tr>
-                                            {% comment %} <td>{{forloop.counter}}</td> {% endcomment %}
-                                            <td>{{metadatos.id}}</td>
+                                            <td>{{forloop.counter}}</td>
                                             <td>{{metadatos.aliasconxion}}</td>
+                                            <td>{{metadatos.nombd}}</td>
                                             <td>{{metadatos.nomhost}}</td>
                                             <td>{{metadatos.nompuerto}}</td>
-                                            <td>{{metadatos.nombd}}</td>
+                                            
                                             <td>{{metadatos.usuario}}</td>
                                             <td>{{metadatos.comentariobd}}</td>
                                             <td>{{metadatos.fechacreacion}}</td>
                                             <td class="centrado">
-                                                <p>imprension</p>
-                                                <a href="/recursividad/schema/{{metadatos.id}}" class="btn btn-sm btn-block btn-info">Editar</a>
+                                                
+                                                <a href="/recursividad/schema/{{metadatos.id}}" class="btn btn-sm btn-block btn-info"> Metadatos</a>
 
                                                {% comment %}  cambio{% endcomment %}
-                                               <p>imprension    {{metadatos.id}}  </p>
-                                             
+                                            
                                                 <!-- <a href="http://127.0.0.1:8000/eliminacion/{{metadatos.id}}" class="btn btn-sm btn-block btn-danger btnEliminacion">Eliminar</a> -->
                                                 <a href="../eliminacion/{{metadatos.id}}" class="btn btn-sm btn-block btn-danger btnEliminacion">Eliminar</a>
                                             </td>

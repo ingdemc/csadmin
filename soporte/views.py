@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .forms import soporte
 
 def soportes(request):
+     form= soporte()
      if request.method == 'POST':
          form = soporte(request.POST)
          if form.is_valid():

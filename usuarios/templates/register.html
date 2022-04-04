@@ -25,6 +25,7 @@
 </head>
 
 <body class="bg-gradient-primary">
+    {% load crispy_forms_tags %}
 
     <div class="container w-50">
 
@@ -38,34 +39,49 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Crer cuenta!</h1>
                             </div>
-                            <form class="user">
-                                <div class="form-group row">
+                                                  
+                            {% if register_form.errors %}
+                                {{ register_form.errors }}
+                            {% endif %}
+                                   
+                                    
+                            <form method="post" action="" class="user">
+                               {% csrf_token %}
+
+                               {{crispy}}
+                               {% comment %} {{register_form | crispy}} {% endcomment %}
+                               <div class="form-group">
+                                <input type="email" class="form-control form-control-user" id="exampleInputEmail"  name="{{register_form.username.name}}"
+                                    placeholder="Correo">
+                            </div>
+                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user" id="exampleFirstName"
+                                        <input type="text" class="form-control form-control-user" name="{{register_form.first_name.name}}"
                                             placeholder="Nombre">
+                                           
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="text" class="form-control form-control-user" id="exampleLastName"
+                                        <input type="text" class="form-control form-control-user" id="exampleLastName" name="{{register_form.last_name.name}}"
                                             placeholder="Apellido">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="email" class="form-control form-control-user" id="exampleInputEmail"  name="{{register_form.email.name}}"
                                         placeholder="Correo">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
+
+                                        <input type="password" class="form-control form-control-user"   name="{{register_form.password1.name}}"
                                             id="exampleInputPassword" placeholder="Contraseña">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
+                                        <input type="password" class="form-control form-control-user" name="{{register_form.password2.name}}"
                                             id="exampleRepeatPassword" placeholder="Repetir contraseña">
                                     </div>
                                 </div>
-                                <a href="{% url 'index' %}" class="btn btn-danger btn-user btn-block">
-                                    Registrarse
-                                </a>
+
+                                <input type="submit" class="btn btn-danger btn-user btn-block" value="Registrarse"/>
                                 <hr>
                               
                                 
@@ -84,14 +100,14 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js'  %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
 
 </body>
 

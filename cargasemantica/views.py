@@ -2,21 +2,22 @@ from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import ListView
 from cargasemantica.models import Metadatos
-from django.contrib.auth import authenticate, login
-from django.http import HttpResponse
 from .forms import metadatosf
 import psycopg2
 import psycopg2.extras
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def index(request):
     return render(request, "index.html")
 
+@login_required
 def calificacion(request):
     return render(request, "calificacion.html" )
      
 
-
+@login_required
 def crearconexion(request):
      if request.method == 'POST':
          form = metadatosf(request.POST)
@@ -33,12 +34,7 @@ def crearconexion(request):
 def dashboard(request):
     return render(request, "dashboard.html")
 
-
-def comentarios(request):
-    
-    metadatos=Metadatos.objects.get(id=id)
-    return render(request, 'comentarios.html', {'comentarios_met': metadatos})
-
+@login_required
 def eliminacion(request,id,view):
 
     metadatos=Metadatos.objects.get(id=id)
@@ -56,10 +52,10 @@ def recursividad(request,view,id):
     usuariopass=str(idmet.passw)
     conection2=(" dbname="+nombd+ " user="+usuariobd+" password="+usuariopass)
     con = psycopg2.connect (conection2)
-    
 
     if view == "schema":
         print(con)
+
         return(schema(con,request,idmet)) 
     else:
         print("algo salio mal en schema")
@@ -79,7 +75,7 @@ def recursividad(request,view,id):
     else: 
         print("algo salio mal reglas")
 
-    
+
 def schema(con,request,idmet):
         
         sql=""" SELECT n.nspname AS "Name",                                          
@@ -111,6 +107,7 @@ def schema(con,request,idmet):
                         print('Conexión finalizada.')
 
     #tablas de las tablas bd
+
 def tablas(con,request,idmet):
     
       sql=""" SELECT table_catalog,table_schema,table_name,table_type FROM information_schema.tables; """

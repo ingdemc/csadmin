@@ -1,5 +1,8 @@
 from django.contrib.auth import authenticate, get_user_model
 from django import forms
+from django.core import validators
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 User = get_user_model()
 
 class UsersLoginForm(forms.Form):
@@ -29,3 +32,8 @@ class UsersLoginForm(forms.Form):
 				raise forms.ValidationError("El usuario no esta activo")
 
 		return super(UsersLoginForm, self).clean(*args, **keyargs)
+
+class RegisterForm(UserCreationForm):
+			class Meta:
+				model= User
+				fields =['username','email','first_name','last_name','password1','password2']

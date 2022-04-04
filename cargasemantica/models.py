@@ -1,4 +1,3 @@
-
 from statistics import correlation
 from django.db import models
 from django.utils import timezone

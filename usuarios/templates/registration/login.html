@@ -28,7 +28,8 @@
 
 <body class="bg-gradient-primary">
     {% load crispy_forms_tags %}
-
+    
+  
     <div class="container w-50">
 
         <!-- Outer Row -->
@@ -47,29 +48,43 @@
                                     </div>
 
                                     {% if form.errors %}
-                                    <p>
-                                        Su nombre de usuario y contraseña no coinciden. Inténtalo de nuevo.</p>
+
+
+                                    {{ form.errors }}
+
+                                    
+
+
                                     {% endif %}
                                     
-                                    
+                                    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+        {% endfor %}
+
+    {% endif %}
 
                                     <form  class="user " method="post">
                                         {% csrf_token %}
-                                        
-                                   
-                                        {{ cripy }}
+                                        {{ crispy }}
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="text" placeholder="Correo"
-                                                name="{{form.usuario.name}}">
+                                            <input type="text" class="form-control form-control-user"
+                                               aria-describedby="text" placeholder="Correo"
+                                                name="{{form.username.name}}">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                name="{{form.usuario.name}}" placeholder="Password">
+                                                name="{{form.password.name}}" placeholder="Password">
                                         </div>
                                       
-                                        <button type="submit" class="btn btn-danger btn-user btn-block" value="login">Entrar</button>
-                                       
+                                        {% comment %} <button type="submit" class="btn btn-danger btn-user btn-block" value="login">Entrar</button> {% endcomment %}
+                                        <input type="submit" class="btn btn-danger btn-user btn-block" value="Ingresar"/>
+                                
                                     </form>
 
 
@@ -92,14 +107,14 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
 
 </body>
 
