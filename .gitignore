@@ -3,3 +3,5 @@
 
 # Ignora los archivos relacionados a API keys
 .env
+
+echo "web: gunicorn django_tasklist.wsgi --log-file -" > Procfile
