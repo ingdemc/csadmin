@@ -8,9 +8,9 @@ import psycopg2.extras
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-@login_required
-def index(request):
-    return render(request, "index.html")
+# @login_required
+# def index(request):
+#     return render(request, "index.html")
 
 @login_required
 def calificacion(request):
@@ -34,8 +34,8 @@ def crearconexion(request):
 def dashboard(request):
     return render(request, "dashboard.html")
 
-@login_required
-def eliminacion(request,id,view):
+
+def eliminacion(request,id):
 
     metadatos=Metadatos.objects.get(id=id)
     metadatos.delete()

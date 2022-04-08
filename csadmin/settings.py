@@ -31,8 +31,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL = "/index"
-LOGOUT_REDIRECT= "/login"
+LOGIN_REDIRECT_URL = "/crearconexion"
+LOGOUT_REDIRECT= "/register"
 
 
 
@@ -61,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'csadmin.urls'
@@ -68,9 +69,7 @@ ROOT_URLCONF = 'csadmin.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Diana/Desktop/cs-admin/csadmin-web/csadmin/cargasemantica/template',
-        'C:/Users/Diana/Desktop/cs-admin/csadmin-web/csadmin/soporte/template',
-        'C:/Users/Diana/Desktop/cs-admin/csadmin-web/csadmin/usuarios/template'],
+        'DIRS': ['C:/Users/Diana/Desktop/cs-admin/csadmin-web/csadmin/cargasemantica/template',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es'
 
 TIME_ZONE = 'America/Bogota'
 

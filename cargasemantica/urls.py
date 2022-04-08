@@ -6,7 +6,7 @@ from .views import (
 )
 urlpatterns = [
     path(r'verconexion/', ConexionListView.as_view(), name='ver_conexion'),
-    path('index', views.index, name='index'),
+    # path('index', views.index, name='index'),
     path(r'calificacion/', calificacion, name='calificacion'),
     path('crearconexion/', views.crearconexion, name='crearconexion'),
     path(r'dashboard/', views.dashboard),

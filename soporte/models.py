@@ -8,8 +8,8 @@ class Soporte(models.Model):
     apellido = models.CharField(max_length=60)
     correo = models.EmailField(max_length=254)
     detalleserror = models.CharField(max_length=500)
+
     fechacreacion = models.DateTimeField(default=timezone.now)
-    
 
     class Meta:
         verbose_name ='Soporte'

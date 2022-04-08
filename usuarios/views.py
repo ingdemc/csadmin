@@ -43,4 +43,4 @@ def register(request):
 
 def logout_user(request):
 	logout(request)
-	return redirect('/accounts/login')
+	return redirect('/register')
