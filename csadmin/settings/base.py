@@ -66,7 +66,7 @@ ROOT_URLCONF = 'csadmin.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Diana/Desktop/cs-admin/csadmin-web/csadmin/cargasemantica/template',],
+        'DIRS': ['template',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
