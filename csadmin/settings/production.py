@@ -1,7 +1,7 @@
 from .base import *
 DEBUG = True
 
-ALLOWED_HOSTS = ['projectcsadmin.herokuapp.com']
+ALLOWED_HOSTS = ['https://projectcsadmin.herokuapp.com/']
 
 
 # Database
