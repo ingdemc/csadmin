@@ -10,10 +10,10 @@ ALLOWED_HOSTS = ['projectcsadmin.herokuapp.com']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DATABASE_NAME'),
-        'USER': env('DATABASE_USER'),
-        'PASSWORD': env('DATABASE_PASS'),
-        'HOST': 'localhost',
+        'NAME': 'decfdv3aaoot8e',
+        'USER': 'czpkfildxspopq',
+        'PASSWORD': 'c9e223395cf5f5a327150be4df21fa3b2ad56a350b7ed1573b5f230707bc8ddb',
+        'HOST': 'ec2-34-197-84-74.compute-1.amazonaws.com',
         'DATABASE_PORT':'5432',
     }
 
