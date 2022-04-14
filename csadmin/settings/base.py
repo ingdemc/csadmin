@@ -58,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     
 ]
 
@@ -120,10 +121,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIR=(os.path.join(BASE_DIR, 'static'),)
-STATIC_ROOT = os.path.join(BASE_DIR, 'collacted_static')
+STATIC_TMP=os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL ='/media/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'static/media')
+
+os.makedirs(STATIC_TMP, exit_ok=True)
+os.makedirs(STATIC_ROOT, exit_ok=True)
+
+STATICFILES_DIR=(os.path.join(BASE_DIR, 'static'),)
 
 
 
@@ -135,3 +141,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = "django.core.mail.backends.setup.EmailBackend"
 
 
+STATICFILES_STORAGE= 'whitenoise.storage.CompressedMainfestStaticFilesStorage'
