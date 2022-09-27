@@ -1,0 +1,2 @@
+$('#tabschema').DataTable();
+

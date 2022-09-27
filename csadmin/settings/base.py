@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
+import environ
+
+env= environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,20 +26,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d@z( # h38#s!5pr*d%czo1pk$35sj8t1!_6k^6gy!t(xzk%apy3'
 
+SECRET_KEY = env.str=('SECRET_KEY')
 
 
 LOGIN_REDIRECT_URL = "/crearconexion"
-LOGOUT_REDIRECT= "/register"
+
+LOGOUT_REDIRECT_URL= "/"
 
 
 
 # Application definition
 
 INSTALLED_APPS = [
+
+
+    "admin_interface",
+
+    "colorfield",
     'soporte.apps.SoporteConfig',
-    'usuarios.apps.UsuariosConfig',
     'cargasemantica.apps.CargasemanticaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -46,7 +55,8 @@ INSTALLED_APPS = [
     
     'crispy_forms',
   ]
-
+X_FRAME_OPTIONS  =  "SAMEORIGIN" 
+SILENCED_SYSTEM_CHECKS  =  [ "security.W019" ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
@@ -66,7 +76,7 @@ ROOT_URLCONF = 'csadmin.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ os.path.join(BASE_DIR,'../templates')],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -118,19 +128,17 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
+# AUTH_USER_MODEL ='usuarios.Usuario'
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static", 
-]
+STATIC_URL = '/static/'
+# STATICFILES_DIRS =( 'static',)
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, '/media')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-MEDIA_URL ='/media/'
-MEDIA_ROOT= os.path.join(BASE_DIR, 'static/media')
-
-
+# MEDIA_URL ='/media/'
+# MEDIA_ROOT= os.path.join(BASE_DIR, 'static/media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

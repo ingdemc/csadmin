@@ -20,13 +20,20 @@ from django.urls import include,path
 from django.contrib.auth import views as auth_views
 
 from django.conf import settings
+
+
+from csadmin.settings import base
 from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include ('cargasemantica.urls')),
     path('', include ('soporte.urls')),
-    path('', include('usuarios.urls')),
+  
+    
     path('accounts/', include('django.contrib.auth.urls')),
+    
 
-] +static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)
+] + static(base.STATIC_URL,document_root=base.STATIC_ROOT)
+urlpatterns += static(base.MEDIA_URL, document_root=base.MEDIA_ROOT)

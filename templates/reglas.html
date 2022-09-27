@@ -1,0 +1,32 @@
+{% extends "metadatos.html" %}
+{% block contentmetadatos %}
+                        <div class="card-header bg-info py-3">
+                            <h6 class="m-0 font-weight-bold text-white"><i class="fas fa-clipboard-list fa-2x text-gray-300"></i> Reglas</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="tabreglas" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>N°</th>
+                                            <th>Nombre index</th>
+                                            <th>Esquema</th>
+                                            <th>Nombre de tabla</th>                                    
+                                            <th>Nombre de columna</th>
+                                            <th>Comentario</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for metadatos in reglas_met %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                                {% for col in metadatos %}
+                                                 <td>{{col}}</td>
+                                                {% endfor %}
+                                            </tr>
+                                            {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+{% endblock %}

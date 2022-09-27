@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% block  title %} CS Admin - metadatos
+{% endblock %}
+{% load static %}
+
+
+{% block head %}
+<link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+                    
+                    
+                    
+                    <div class="row">
+                        <div class="col-lg-1">
+                          
+                          <a href="/recursividad/{{ide}}"><i class="fas fa-reply  text-warning"> volver</i> </a>
+                            
+                          
+                        
+                
+                        </div>
+                        <div class="col">
+                            <h1 class="h3 mb-2 text-gray-800 text-center p-3"> <strong>Tabla - {{nomtabla}}</strong>  </h1>
+                    
+                        </div>
+                        
+                        </div>
+    <!-- fin -->
+                        <!-- DataTales Example -->
+                        
+              
+                        <!-- fin tablas -->
+                        <div class="card shadow  mb-3" >
+                    
+                    
+                            <div class="card-header  border-left-warning  bg-white  ">
+                               
+                                <div class="row">
+                                    <div class="col">
+                                       <i class="fas fa-comments fa text-warning"></i> 
+                            
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="m-0 font-weight-bold text-warning">Columnas</h6>
+                            
+                                    </div>
+                                    
+                                    </div>
+                            
+                            
+                            </div>
+                            <div class="card-body " >
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="tabcoment" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>N°</th>
+                                                <th>Esquema</th>
+                                                <th>Nombre de tabla</th>
+                                                <th>Nombre columna</th>
+                                                <th>Tipo</th>
+                                                <th>Not null</th>
+                                                <th>Comentario</th>
+                                              
+    
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for metadatos in coment %}
+                                            <tr>
+                                                <td>{{forloop.counter}}</td>
+                                                    {% for col in metadatos %}
+                                                     <td>{{col}}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div> 
+                        </div>
+                        <!-- comentarios -->
+                        
+                        <!-- reglas -->
+                        <div class="card  shadow mb-3" >
+                            <div class="card-header border-left-info  bg-white ">
+                                
+                                 <div class="row">
+                                    <div class="col">
+                                        <i class="fas fa-clipboard-list fa text-info"></i> 
+                               
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="m-0 font-weight-bold text-info"> Indices</h6>
+                               
+                                    </div>
+                                   
+                                    </div>
+                                          
+                            
+                            </div>
+                            <div class="card-body ">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered " id="tabreglas" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr >
+                                                <th >N°</th>
+                                                <th >TIPO</th>
+                                                <th >Esquema</th>
+                                                <th >Nombre de tabla hija</th>                                    
+                                                <th >Nombre de tabla padre </th>
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for metadatos in indice %}
+                                            <tr>
+                                                <td>{{forloop.counter}}</td>
+                                                    {% for col in metadatos %}
+                                                     <td>{{col}}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- fin comentarios -->
+                     
+
+                     
+                      
+                        </div>
+                        
+                        
+                        
+                    {% endblock %}
+                    
+                    
+                    {% block javascript %}
+                 
+                    <script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+                    <script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+                 <!-- Page level custom scripts -->
+                    <script src=" {% static 'js/demo/datatables-funciones.js' %}"></script>
+                    <script src=" {% static 'js/demo/datatables-tablas.js' %}"></script>
+                    <script src=" {% static 'js/demo/datatables-reglas.js' %}"></script>
+                    <script src=" {% static 'js/demo/datatables-comentarios.js' %}"></script>
+               
+                    {% endblock %}
+                  

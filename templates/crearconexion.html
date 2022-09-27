@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block  title %}CS Admin - crearconexion{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container-fluid">
+    <h1 class="h3 mb-2 text-gray-800">Crear conexion</h1>
+    <div class="container-fluid">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Nueva conexion</h6>
+            </div>
+                <div class="card-body">
+                
+                    <form method="post" class="" >
+                        {% csrf_token %}
+                          
+                     {{crispy}}
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="{{form.aliasconxion.name}}"
+                                placeholder="Alias de conexion"  value="nueva conexion">
+                               
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control form-control-user"  name="{{form.comentariobd.name}}"
+                                placeholder="Comentario" value="Metadatos">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="{{form.nomhost.name}}"
+                                placeholder="Nombre de host" value="ec2-52-207-90-231.compute-1.amazonaws.com" >
+                               
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control form-control-user"  name="{{form.nompuerto.name}}"
+                                placeholder="Nombre de puerto" value="5432" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user"  name="{{form.nombd.name}}"
+                            placeholder="Nombre de la base de datos" value="dfu7ejekim8hkd">
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="{{form.usuario.name}}"
+                                placeholder="Usuario" value="tbedegznrnnqhv">
+                               
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control form-control-user"  name="{{form.passw.name}}"
+                                placeholder="Contraseña" value="5f4a7029a0a1762218601c29908b305e8b2c1ea576456b3d684a361f61d1c3d0">
+                        </div>
+                    </div>
+                    
+                         <button type="submit" class="btn btn-info btn-user btn-block" value="login">Crear conexion</button>
+                        </form>
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,525 @@
+{% extends "base.html" %}
+{% block  title %} CS Admin - metadatos
+{% endblock %}
+{% load static %}
+
+
+{% block head %}
+<link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+                    <h1 class="h3 mb-2 text-gray-800 text-center p-3"> <strong>{{alias}} - {{coment}}</strong>  </h1>
+                    <p class="mb-4">En este apartado encontraras los metadatos alojados en el sistema gestor de base de datos PostgreSQL </p>
+       
+                <div class="row">
+                <!-- col-xl-2 col-md-6 mb-4 -->
+                        <div class="col mb-4">
+                            <div class="card border-left-primary shadow h-100 ">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-primary text-uppercase">
+                                                ESQUEMA</div>
+                                                
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                {% for c in conta %}
+                                                    {% for r in c %}
+                                                    {{r}}
+                                                    {% endfor %}
+                                                    {% endfor %}</div>
+                                           
+                                        </div>
+                                        <div class="col-auto">
+                                            <!-- <a href="/recursividad/schema/{{metadatos.id}}"  class="btn  btn-block btn-primary"> <i class="fas fa-calendar fa-2x text-white"></i></a> -->
+                                           <i class="fas fa-calendar fa-2x text-primary" type="button"  data-toggle="collapse" data-target="#schemacollapse" aria-expanded="true" aria-controls="schemacollapse"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Earnings (Annual) Card Example -->
+                        <div class="col mb-4">
+                            <div class="card border-left-danger shadow h-100 ">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase ">
+                                                Tablas</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    {% for c in tabla_cont %}
+                                                    {% for r in c %}
+                                                    {{r}}
+                                                    {% endfor %}
+                                                    {% endfor %}
+                                                </div>
+                                            
+                                        </div>
+                                        <div class="col-auto">
+                                            
+                                            <!-- <a href="/recursividad/tablas/{{metadatos.id}}"  class="btn btn-danger btn-block"><i class="fas fa-clipboard-list fa-2x text-white"></i></a> -->
+                                           <a  href="#tablascollapse"> <i class="fas fa-clipboard-list fa-2x text-danger" type="button" data-toggle="collapse" data-target="#tablascollapse" aria-expanded="true" aria-controls="tablascollapse"></i></a>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col mb-4">
+                            <div class="card border-left-warning shadow h-100 ">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col ">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase ">
+                                               COLUMNAS</div>
+                                            
+                                               <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                
+                                                {% for c in coment_cont %}
+                                                {% for r in c %}
+                                                {{r}}
+                                                {% endfor %}
+                                                {% endfor %}
+                                               </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            
+                                            <!-- <a href="/recursividad/comentarios/{{metadatos.id}}" class ="btn btn-block btn-warning"><i class="fas fa-comments fa-2x text-white "></i></a> -->
+                                           <a href="#comentarioscollapse"> <i class="fas fa-comments fa-2x text-warning " type="button"  data-toggle="collapse" data-target="#comentarioscollapse" aria-expanded="true" aria-controls="comentarioscollapse" ></i></a>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <!-- Tasks Card Example -->
+                        <div class="col mb-4">
+                            <div class="card border-left-info shadow h-100 ">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase ">Indices
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                    {% for c in regla_cont %}
+                                                    {% for r in c %}
+                                                    {{r}}
+                                                    {% endfor %}
+                                                    {% endfor %}
+                                                
+                                                
+                                                </div>
+                                                <!-- <a href="/recursividad/reglas/{{metadatos.id}}"  class="btn btn-sm btn-block btn-info">Ver</a> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            
+                                            <!-- <a href="/recursividad/reglas/{{metadatos.id}}"  class="btn btn-block btn-info"><i class="fas fa-book fa-2x text-white"></i></a> -->
+                                            <a href="#reglascollapse"><i class="fas fa-book fa-2x text-info" type="button"  data-toggle="collapse" data-target="#reglascollapse" aria-expanded="true" aria-contrreglas="reglascollapse" ></i></a> 
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="col mb-4">
+                            <div class="card border-left-success shadow h-100 ">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase ">
+                                               Funciones</div>
+                                            
+                                               <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                                
+                                                {% for c in func_cont %}
+                                                {% for r in c %}
+                                                {{r}}
+                                                {% endfor %}
+                                                {% endfor %}
+                                               </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            
+                                            <!-- <a href="/recursividad/comentarios/{{metadatos.id}}" class ="btn btn-block btn-warning"><i class="fas fa-comments fa-2x text-white "></i></a> -->
+                                           <a href="#esquemacollapse"> <i class="fas fa-comments fa-2x text-warning "   type="button"  data-toggle="collapse" data-target="#esquemacollapse" aria-expanded="true" aria-controls="esquemacollapse"></i></a>
+                                        
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+{% comment %}                         
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                               Funciones</div>
+                                            
+                                            <a href="#"  class="btn btn-sm btn-block btn-warning">Ver</a>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+                    </div>
+    <!-- ejemplo de schemas  -->
+                
+    <div class="card  collapse mb-1" id="schemacollapse" >
+        <div class="card-header border-left-primary  bg-white ">
+        <div class="row">
+        <div class="col">
+        <i class="fas fa-calendar fa text-primary"></i>  
+            
+        </div>
+        <div class="col">
+            <h6 class="m-0 font-weight-bold  text-primary">  Esquema</h6>
+            
+        </div>
+        <div class="col-right">
+        <div class="row m-0">
+        <div class="col">
+            <i class="fas fa-minus fa text-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="true" aria-controls="collapseExample"></i>
+            
+        </div>
+        <div class="col">
+           <i class="fas fa-times fa  text-primary" type="button" data-toggle="collapse" data-target="#schemacollapse" aria-expanded="true" aria-controls="schemacollapse"></i>
+        </div>
+        </div>
+            
+        </div>
+        </div>
+              
+            
+       </div>
+       <div class="card-body collapse "id="collapseExample">
+           
+           <div class="table-responsive">
+               <table class="table table-bordered" id="tabschema" width="100%" cellspacing="0">
+                   <thead>
+                       
+                       <tr>
+                           <th>Id</th>
+                           <th>Nombre esquema</th>
+                           <th>Propietario</th>
+                           <th>Privilegios de acceso</th>
+                           <th>Comentario</th>
+                           </tr>
+                   </thead>
+                   <tbody>
+                                                            
+                       
+                       {% for row in schema_met %}
+                       <tr>
+                       <td>{{forloop.counter}}</td>
+                           {% for col in row %}
+                            <td>{{col}}</td>
+                           {% endfor %}
+                       </tr>
+                       {% endfor %}
+                   
+                   </tbody>
+               </table>
+           </div>
+       </div>
+   </div>
+    <!-- fin -->
+                        <!-- DataTales Example -->
+                        
+                 <!--tablas -->
+                        
+                        
+                        <div class="card shadow collapse mb-1" id="tablascollapse" >
+                        <div class="card-header  border-left-danger  bg-white  ">
+                        <div class="row">
+                        <div class="col">
+                            <i class="fas fa-clipboard-list fa text-danger"></i>   
+                        </div>
+                        <div class="col">
+                            <h6 class="m-0 font-weight-bold text-danger"> Tablas</h6>
+                       
+                        </div>
+                        <div class="col-right">
+                        <div class="row m-0">
+                            <div class="col">
+                                <i class="fas fa-minus fa text-danger" type="button" data-toggle="collapse" data-target="#collapseta" aria-expanded="true" aria-controls="collapseta"  ></i>
+                                
+                            </div>
+                            <div class="col">
+                               <i class="fas fa-times fa text-danger" type="button" data-toggle="collapse" data-target="#tablascollapse" aria-expanded="true" aria-controls="tablascollapse"></i>
+                            </div>
+                        
+                        </div>
+                        
+                        
+                        </div>
+                        
+                        </div>
+                         
+                            </div>
+                        <div class="card-body collapse" id="collapseta">
+                          
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="tabtable"    width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>N°</th>
+                                            <th>Esquema</th>
+                                            <th>Nombre de la tabla</th>
+                                            <th>N° de campos </th>
+                                            <th>N° de registros </th>
+                                            <th>Comentario</th>
+                                            
+                                           
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                        {% for data in tablas_met %}
+                                               
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{data.0}}</td>
+                                            <td><a href="/dtabla/{{data.1}}/{{ide}}">{{data.1}}</a></td>
+                                            <td>{{data.2}}</td>
+                                            <td>{{data.3}}</td>
+                                            <td>{{data.4}}</td>
+                                               
+                                            </tr>
+                                            {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                        
+                        <!-- fin tablas -->
+                        
+                        <!-- comentarios -->
+                        
+                        <div class="card shadow collapse mb-1" id="comentarioscollapse" >
+                    
+                    
+                            <div class="card-header  border-left-warning  bg-white  ">
+                               
+                                <div class="row">
+                                    <div class="col">
+                                       <i class="fas fa-comments fa text-warning"></i> 
+                            
+                                    </div>
+                                    <div class="col">
+                                        <h6 class="m-0 font-weight-bold text-warning">Columnas</h6>
+                            
+                                    </div>
+                                    <div class="col-right">
+                                    <div class="row m-0">
+                                    <div class="col">
+                                       <i class="fas fa-minus text-warning"  id="#buttonmin" type="button"  data-toggle="collapse" data-target="#collapseco" aria-expanded="true" aria-controls="collapseco"></i>
+                                        
+                                    </div>
+                                    <div class="col">
+                                        <i class="fas fa-times  text-warning" type="button" data-toggle="collapse" data-target="#comentarioscollapse" aria-expanded="true" aria-controls="comentarioscollapse"></i>
+                                    </div>
+                                    </div>
+                                        
+                                    </div>
+                                    </div>
+                            
+                            
+                            </div>
+                            <div class="card-body collapse" id="collapseco">
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="tabcoment" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>N°</th>
+                                                <th>Esquema</th>
+                                                <th>Nombre de tabla</th>
+                                                <th>Nombre columna</th>
+                                                <th>Tipo</th>
+                                                <th>Not null</th>
+                                                <th>Comentario</th>
+                                              
+    
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for metadatos in comentarios_met %}
+                                            <tr>
+                                                <td>{{forloop.counter}}</td>
+                                                    {% for col in metadatos %}
+                                                     <td>{{col}}</td>
+                                                    {% endfor %}
+                                                </tr>
+                                                {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div> 
+                        </div>
+                        <!-- fin comentarios -->
+                        
+                        <!-- reglas -->
+                        <div class="card  collapse mb-1" id="reglascollapse" >
+                        <div class="card-header border-left-info  bg-white ">
+                            
+                             <div class="row">
+                                <div class="col">
+                                    <i class="fas fa-clipboard-list fa text-info"></i> 
+                           
+                                </div>
+                                <div class="col">
+                                    <h6 class="m-0 font-weight-bold text-info"> Indices</h6>
+                           
+                                </div>
+                                <div class="col-right">
+                                <div class="row m-0">
+                                <div class="col">
+                                    <i class="fas fa-minus text-info" type="button" data-toggle="collapse" data-target="#collapsere" aria-expanded="true" aria-controls="collapsere"></i>
+                                    
+                                </div>
+                                <div class="col">
+                                    <i class="fas fa-times  text-info" type="button"  data-toggle="collapse" data-target="#reglascollapse" aria-expanded="true" aria-controls="reglascollapse"></i>
+                                </div>
+                                </div>
+                                    
+                                </div>
+                                </div>
+                                      
+                        
+                        </div>
+                        <div class="card-body collapse" id ="collapsere">
+                            <div class="table-responsive">
+                                <table class="table table-bordered " id="tabreglas" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr >
+                                            <th >N°</th>
+                                            <th >TIPO</th>
+                                            <th >Esquema</th>
+                                            <th >Nombre de tabla hija</th>                                    
+                                            <th >Nombre de tabla padre </th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for metadatos in reglas_met %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                                {% for col in metadatos %}
+                                                 <td>{{col}}</td>
+                                                {% endfor %}
+                                            </tr>
+                                            {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                        
+                        <!-- fin reglas -->
+                        
+                        
+                                                <!-- esquema -->
+                                                <div class="card  collapse mb-1" id="esquemacollapse" >
+                                                    <div class="card-header border-left-success  bg-white  ">
+                                                        
+                                                         <div class="row">
+                                                            <div class="col">
+                                                               <i class="fas fa-clipboard-list fa text-success"></i> 
+                                                       
+                                                            </div>
+                                                            <div class="col">
+                                                                <h6 class="m-0 font-weight-bold text-success"> Funciones</h6>
+                                                       
+                                                            </div>
+                                                            <div class="col-right">
+                                                            <div class="row m-0">
+                                                            <div class="col">
+                                                                <i class="fas fa-minus fa text-success"   type="button" data-toggle="collapse" data-target="#collapse-esquema" aria-expanded="true" aria-controls="collapse-esquema"></i>
+                                                                
+                                                            </div>
+                                                            <div class="col">
+                                                                <i class="fas fa-times fa text-success" type="button"  data-toggle="collapse" data-target="#esquemacollapse" aria-expanded="true" aria-controls="esquemacollapse"  ></i>
+                                                            </div>
+                                                            </div>
+                                                                
+                                                            </div>
+                                                            </div>
+                                                                  
+                                                    
+                                                    </div>
+                                                    <div class="card-body collapse" id ="collapse-esquema">
+                                                    
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered " id="funtable" width="100%" cellspacing="0">
+                                                                <thead>
+                                                                    <tr >
+                                                                        <th >N°</th>
+                                                                        <th >Esquema</th>
+                                                                        <th >Nombre</th>                                    
+                                                                        <th >Datos de retorno </th>
+                                                                        <th >Tipo </th>
+                                                                        
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    {% for metadatos in func %}
+                                                                    <tr>
+                                                                        <td>{{forloop.counter}}</td>
+                                                                            {% for col in metadatos %}
+                                                                             <td>{{col}}</td>
+                                                                            {% endfor %}
+                                                                        </tr>
+                                                                        {% endfor %}
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                      
+                                                      
+                                                      
+
+
+                                                      
+                                                    </div>
+                                                </div>
+                                                    
+                                                    <!-- fin reglas -->
+                        
+                      
+                        </div>
+                    {% endblock %}
+                    
+                    
+                    {% block javascript %}
+                 
+                    <script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+                    <script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+                 <!-- Page level custom scripts -->
+                    <script src=" {% static 'js/demo/datatables-schema.js' %}"></script>
+                    <script src=" {% static 'js/demo/datatables-tablas.js' %}"></script>
+                    <script src=" {% static 'js/demo/datatables-reglas.js' %}"></script>
+                    <script src=" {% static 'js/demo/datatables-comentarios.js' %}"></script>
+                    <script src=" {% static 'js/demo/datatables-funciones.js' %}"></script>
+                    {% endblock %}
+                  

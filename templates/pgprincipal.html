@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} CS Admin - index
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-center mb-4 p-3">
+    <h1 class="h3 mb-0 text-gray-800 text-strong">Perfil </h1>
+
+</div>
+
+<div class="row">
+
+    <!-- Pie Chart -->
+
+    <div class="col-xl-12 col-lg-7 ">
+        <!-- Color System -->
+        <div class="row p-3 mt-3">
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-lg-4 mb-4">
+
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                    Bienvenido  {{request.user.username}}
+                                  
+                                    </div>
+                                    
+                                   
+                            </div>
+                            <div class="sidebar-brand-icon rotate-n-15">
+                                <img class="img-profile rounded-circle"
+                                src="{% static 'img/usuario5.jpg' %}" width="50 px" height="50px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-lg-4 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Numero de conexiones</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{met_reg}}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Earnings (Monthly) Card Example -->
+            <div class="col-lg-4 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                    Mensajes de soporte </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{numero_reg}}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<!-- Content Row -->
+<div class="row">
+
+    <!-- Content Column -->
+    <div class="col-lg-6 mb-4">
+
+        <!-- Project Card Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-success">Datos personales</h6>
+            </div>
+            <div class="card-body">
+
+
+                <div class="mb-3">
+                    <label class="small mb-1" for="nombd">Nombre</label>
+                    <input class="form-control" name="{{form.nombd.name}}" id="id_nombd" type="text"
+                        placeholder="Nombre de la base de datos" value="{{request.user.first_name }}">
+
+                </div>
+
+                <div class="mb-3">
+                    <label class="small mb-1" for="nombd">Apellido</label>
+                    <input class="form-control" name="{{form.nombd.name}}" id="id_nombd" type="text"
+                        placeholder="Nombre de la base de datos" value="{{request.user.last_name }}">
+
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="small mb-1" for="nombd">Nombre de usuario</label>
+                    <input class="form-control" name="{{form.nombd.name}}" id="id_nombd" type="text"
+                        placeholder="Nombre de la base de datos" value="{{request.user.username }}">
+
+                </div>
+                <div class="mb-3">
+                    <label class="small mb-1" for="nombd">Correo</label>
+                    <input class="form-control" name="{{form.nombd.name}}" id="id_nombd" type="text"
+                        placeholder="Nombre de la base de datos" value="{{request.user.email }}">
+
+                </div>
+
+                <button type="submit" class="btn btn-success btn-user btn-block" value="login">Editar</button>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div class="col-lg-6 mb-4">
+
+        <!-- Illustrations -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Mensajes</h6>
+            </div>
+            <div class="card-body">
+
+                {% for data in msgsoporte %}
+
+                <div class="card mb-3">
+
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>{{data.detalleserror}}</p>
+                        </blockquote>
+                    </div>
+                    <div class="card-header bg-primary text-white">
+                        {{data.fechacreacion}}
+                    </div>
+                </div>
+
+
+
+                {% endfor %}
+
+
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+</div>
+
+{% endblock %}

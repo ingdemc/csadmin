@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block  title %} CS Admin - verconexiones
+{% endblock title %}
+{% load static %}
+
+{% block head %}
+<link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet' %}">
+{% endblock  %}
+{% block content %}
+<div class="container-fluid">
+
+<div class="row mt-3">
+<div class="col">
+    <h1 class="h3 mb-2 text-gray-800">Conexiones</h1>
+    <p class="mb-4">En este apartado encontraras todas las conexiones con las bases de datos </p>
+
+</div>
+<!-- <div class="col-xl-2 mt-3">
+ 
+    
+    <a href="#" type="button" class="btn btn-sm btn-block btn-info" data-toggle="modal" data-target="#exampleModal">  <i class="fas fa-calendar fa-fw text-white"></i> Crear conexion</a>
+</div> -->
+</div>
+         <!-- Page Heading -->
+                  
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            
+                            <h6 class="m-0 font-weight-bold text-primary">Datos de conexiones</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover table-bordered " id="tablaConx">
+                                    <thead >
+                                        <tr>
+                                            <th>N°</th>
+                                            <th>Alias de conexion</th>
+                                            <th>Base de datos</th>
+                                            <th>Comentario</th>
+                                            <th>Fecha</th>
+                                            <th>Acciones</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for metadatos in object_list %}
+                                        <tr>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{metadatos.aliasconxion}}</td>
+                                            <td>{{metadatos.nombd}}</td>
+                                            <td>{{metadatos.comentariobd}}</td>
+                                            <td>{{metadatos.fechacreacion}}</td>
+                                            <td >
+                                            <div class="row">
+                                            <!-- <div class="col">
+                                                <button type="button" class="btn btn-sm btn-block btn-success " data-toggle="modal" data-target="#exampleModal"><i class="fas fa-edit fa-fw text-white"></i>
+                                                   
+                                                  </button>
+                                                
+                                               
+                                            </div> -->
+                                            <div class="col">
+                                            <a href="/recursividad/{{metadatos.id}}" class="btn btn-sm btn-block btn-info">  <i class="fas fa-calendar fa-fw text-white"></i></a>
+                                        
+                                           
+                                        
+                                        </div>
+                                        
+                                        <div class="col">
+                                        
+                                        
+                                                <!-- <a href="http://127.0.0.1:8000/eliminacion/{{metadatos.id}}" class="btn btn-sm btn-block btn-danger btnEliminacion">Eliminar</a> -->
+                                                <a href="../eliminacion/{{metadatos.id}}" class="btn btn-sm btn-block btn-danger btnEliminacion"> <i class="fas fa-trash fa-fw text-white"></i></a>
+                                                
+                                        </div>
+                                        
+                                            </div>
+                                             
+                                            
+                                                
+                                            </td>
+                                          
+
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Crear Conexion</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post" class="user" >
+                        {% csrf_token %}
+                          
+                     {{crispy}}
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="{{form.aliasconxion.name}}"
+                                placeholder="Alias de conexion" >
+                               
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control form-control-user"  name="{{form.comentariobd.name}}"
+                                placeholder="Comentario" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="{{form.nomhost.name}}"
+                                placeholder="Nombre de host" >
+                               
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" class="form-control form-control-user"  name="{{form.nompuerto.name}}"
+                                placeholder="Nombre de puerto" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control form-control-user"  name="{{form.nombd.name}}"
+                            placeholder="Nombre de la base de datos" >
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <input type="text" class="form-control form-control-user" name="{{form.usuario.name}}"
+                                placeholder="Usuario" >
+                               
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="password" class="form-control form-control-user"  name="{{form.passw.name}}"
+                                placeholder="Contraseña" >
+                        </div>
+                    </div>
+                    
+                        <button type="submit" class="btn btn-info btn-user btn-block" value="login">Crear conexion</button> 
+                        </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                              <!-- <button type="button" class="btn btn-success">Guardar</button> -->
+                              <!-- <button type="submit" class="btn btn-info btn-user " value="login">Crear conexion</button>
+                             -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    
+                    {% endblock %}
+
+                    {% block javascript %}
+                 
+                    <script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+                    <script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+                 <!-- Page level custom scripts -->
+                    <script src=" {% static 'js/demo/datatables-demo.js' %}"></script>
+                 
+                    {% endblock %}
+                  

@@ -1,0 +1,1 @@
+$('#tabreglas').DataTable();

@@ -1,0 +1,293 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CS-ADMIN</title>
+
+  <!-- Bootstrap Stylesheet -->
+  <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- Main Stylesheet -->
+
+  <link href="{% static 'css/cs-index.css' %}" rel="stylesheet">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+</head>
+<body>
+
+
+  <!-- Header Start -->
+  <header class="header p-3 position-absolute start-0 top-0 end-0 ">
+    <div class="d-flex justify-content-between align-items-center">
+     <a href="/" class="text-decoration-none text-grey fs-5 fw-bold">
+      <img src="{% static 'img/logotipo.png' %}" whidth="40"heigth="20"> </a> 
+      {% if user.is_authenticated %}
+      <div>
+        <a href="{% url 'crearconexion' %}" class="mt-2 btn btn-lg btningresar" role="button">Ingresar</a>
+    </div>
+      {% else %}
+      <div>
+        <a href="accounts/login" class="mt-2 btn btn-lg btningresar" role="button">Ingresar</a>
+    </div>
+      {% endif %}
+      
+      
+    </div>
+  </header>
+  <!-- Header End -->
+  
+  
+  
+  
+  
+
+ 
+  <!-- Flyout Navigation End -->
+
+  <!-- Hero Start -->
+  <section class="hero">
+
+    <div class="hero__overlay"></div>
+
+    <!-- Video not included. Download: https://www.pexels.com/video/two-people-in-front-of-a-campfire-pouring-water-from-a-kettle-2675515/ -->
+ 
+      <img class="hero__video"  
+      src="{% static 'img/banner.jpg' %}" whidth="100%"heigth="100%">
+   
+
+    <div class="hero__content h-100 container-custom position-relative">
+      <div class="d-flex h-100 align-items-center hero__content-width">
+        <div class="text-grey">
+          <h1 class="hero__heading fw-bold mb-4">Proyecto de Grado</h1>
+          <p class="lead mb-4">Carga Semántica Documental En El Modelo De Base De Datos Relacional Potenciada Mediante Herramientas Software  </p>
+          <a href="#csadmin" class="mt-2 btn  btningresar" role="button">Mas informacion</a>
+         
+        </div>
+      </div>
+    </div>
+
+    <a href="#scroll-down" class="hero__scroll-btn">
+      Explorar <i class="bi bi-arrow-down-short"></i>
+    </a>
+
+  </section>
+  <!-- Hero End -->
+
+  <a id="scroll-down"></a>
+  <!-- Section One Start -->
+  <section class="steps container-custom">
+
+    <div class="row">
+      <div class="col-12 col-sm-6 d-md-flex justify-content-md-ceneter">
+        {% comment %} <img src="img/1-coffe-flavour.jpg" alt="Coffe Flavour" class="img-fluid pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy">
+       {% endcomment %}
+        {% comment %} <img class="img-fluid pb-4 steps__section-thumbnail"    width="553" height="746" loading="lazy"
+        src="{% static 'img/banner.jpg' %}">
+         {% endcomment %}
+        <div class="img-container">
+         
+          <div class="gray-box"><img height='300px '     width= '350px' 
+            src="{% static 'img/registro.png' %}"></div>
+          <div class="green-box"><img height='200px '     width= '300px'  
+            src="{% static 'img/login.png' %}"></div>
+        </div>
+        
+        
+        
+        
+      </div>
+
+      <div class="col-12 col-sm-6 align-self-center  justify-content-md-ceneter">
+
+        <div class="steps__content-width" id="csadmin">
+          <span>01</span>
+          <h1 class="hero__heading fw-bold mb-4"> CS-ADMIN</h1>
+
+          
+          <p class="mb-4">
+          
+          
+            ¿Cuántas veces está postergando la preparación posterior de la base de datos de documentación? <br>
+            Para que la documentación sea efectiva,
+             debe ser un proceso continuo, como escribir código de aplicación. CS-ADMIN cambia este proceso al permitir la generación de documentación, basada ​​en una base de datos existente.
+             Considere cuánto tiempo puede ahorrar gracias a la documentación para sus desarrolladores de software y analistas de datos.
+          
+          
+          </p>
+         
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+  <!-- Section One End -->
+
+  <!-- Section One Start -->
+  <section class="steps steps--background">
+
+    <div class="container-custom">
+
+      <div class="row">
+        <div class="col-12 col-sm-6 d-md-flex justify-content-md-ceneter order-sm-1">
+          {% comment %} <img src="img/2-health-benefits.jpg" alt="Health Benefits" class="img-fluid pb-4 steps__section-thumbnail" width="553" height="746" loading="lazy"> {% endcomment %}
+          <img class="img-fluid pb-4 steps__section-thumbnail "   width="553" height="746" loading="lazy"
+                                    src="{% static 'img/metdatos.png' %}">
+          
+        </div>
+
+        <div class="col-12 col-sm-6 align-self-center justify-content-md-ceneter">
+          <div class="steps__content-width">
+            <span>02</span>
+            <h1 class="hero__heading fw-bold mb-4">Objetivo</h1>
+            <p class="mb-4">La finalidad del proyecto fue desarrollar una herramienta software que sea intuitiva y fácil de usar, la cual ayude a la potencialización de la Carga semántica documental para una mejor comprensión de un modelo de base de datos relacional  </p>
+            
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <section class="intro">
+    <div class="container">
+     
+      <h1 class="hero__heading fw-bold mb-4">Paso a paso &darr;</h1>
+    </div>
+  </section>
+  
+  
+  <section class="timeline">
+    <ul>
+      <li>
+        <div>
+        
+          
+        
+        
+          <time>Realizar encuesta</time>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOH52Tg7MBkezOdBh2rL8wXiC26Nxuc82104Z2q-4Y52FzTQ/viewform" target="_blanck" type="button" class="btn btn-primary    ">  encuesta  <i class="fas fa-file-edit"></i></a>
+          
+          
+        </div>
+      </li>
+      
+  
+      <li>
+        <div>
+          <time>Base de datos</time> 
+          <a href="https://drive.google.com/drive/folders/1aevOpTkPda5IAzl1UQQe0NBeQV3kTT0c?usp=sharing" target="_blanck" type="button" class="btn btn-primary    ">  Base de datos  <i class="fas fa-file-edit"></i></a>
+          
+          
+          
+          </div>
+      </li>
+      <li>
+        <div>
+          <time>Prueba</time> 
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1jyU1y0cQsL4bL0l5D7sSbCobL75AGcdZmIHqV9zSzA_JUA/viewform" target="_blanck" type="button" class="btn btn-primary    ">  Prueba  <i class="fas fa-file-edit"></i></a>
+        </div>
+      </li>
+
+      <li>
+        <div>
+          <time>Ingresar</time> Seguimos con el registro o inicio de sesion.
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>Crear conexion</time> 
+          Al ingresar nos econtraremos en la creacion de zonexion, la cual ya viene una por defecto y es con la que se trabajara.
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>Ver conexion</time> 
+          Despues de a ver creado la conexion, estaremos en el listado de conexiones, precionamos este boton.
+          <a href="" class="btn btn-sm btn-block btn-info">  <i class="fas fa-calendar fa-fw text-white"></i></a> 
+                                                
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>Metadatos</time> 
+          Visualizaremos una pantalla con 5 opciones: Esquemas,tablas,columnas,indices y funciones.
+          presionamos cada uno de los botones y mostrara toda la informacion relacionada con la base de datos
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>Tablas</time> 
+          En la segunda tabla, se tiene la opcion de buscar por nombre de la tabla y hacer la busqueda mas sencilla
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>Perfil</time> 
+          la plataforma cuenta con un perfil de usuario
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>Soporte</time> 
+          
+          En el soporte encontrara un video explicando el funcionamiento de la plataforma y un foro de preguntas
+        </div>
+      </li>
+      <li>
+        <div>
+          <time>Calificacion</time> 
+          
+          De acuerdo a la experiencia obtenida en la plataforma, se solicita amablemente realizar la encuesta de satisfaccion
+        </div>
+      </li>
+      
+    </ul>
+  </section>
+
+  <!-- Footer Start -->
+  <footer class="footer  text-white">
+    <div class="container-custom d-flex justify-content-between align-items-center py-3 border-highlight">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="me-2 text-muted text-decoration-none">
+          <i class="bi bi-cup"></i>
+          <span>&copy; 2022 Diana Marin</span>
+        </a> 
+      </div>
+
+    
+
+
+    </div>
+
+
+
+  </footer>
+  <!-- Footer End -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Bootstrap JS -->
+  <script src=" {% static 'js/demo/timeline.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
