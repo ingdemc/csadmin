@@ -22,7 +22,6 @@ def soportes(request):
 # Create your views here.
 def pgprincipal(request):
 	id= request.user.id
-	
 	msgsoporte= Soporte.objects.filter(iduser=id)
 	numero_reg=Soporte.objects.filter(iduser=id).count()
 	met_reg= Metadatos.objects.filter(iduser=id).count()
