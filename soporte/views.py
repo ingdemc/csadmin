@@ -6,9 +6,9 @@ from .forms import Soporte
 from.models import soporte
 
 def soportes(request):
-     form= soporte()
+     form= Soporte()
      if request.method == 'POST':
-         form = soporte(request.POST)
+         form = Soporte(request.POST)
          if form.is_valid():
             metadatos = form.save(commit=False)
             metadatos.iduser = request.user
@@ -22,8 +22,8 @@ def soportes(request):
 # Create your views here.
 def pgprincipal(request):
 	id= request.user.id
-	msgsoporte= Soporte.objects.filter(iduser=id)
-	numero_reg=Soporte.objects.filter(iduser=id).count()
+	msgsoporte= soporte.objects.filter(iduser=id)
+	numero_reg=soporte.objects.filter(iduser=id).count()
 	met_reg= Metadatos.objects.filter(iduser=id).count()
 	# sql1 =('''SELECT COUNT(*) FROM cargasemantica_metadatos''')
 
