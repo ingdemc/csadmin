@@ -1,5 +1,5 @@
 from django.contrib import admin
-from soporte.models import Soporte
+from soporte.models import soporte
 
 
 # class SoporteAdmin(admin.ModelAdmin):
@@ -14,4 +14,4 @@ from soporte.models import Soporte
 
 
 
-admin.site.register(Soporte)
+admin.site.register(soporte)
