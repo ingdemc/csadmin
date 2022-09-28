@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
-class Soporte(models.Model):
+class soporte(models.Model):
     id=models.AutoField(primary_key= True)
     iduser=models.ForeignKey(User, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=50)

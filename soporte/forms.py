@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 
-class soporte(forms.ModelForm):
+class Soporte(forms.ModelForm):
 	class Meta:
 		model= Soporte
 		fields = ['nombre', 'apellido', 'correo', 'detalleserror']

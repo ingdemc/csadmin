@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from cargasemantica.forms import Metadatos
 from soporte.forms import CustomCreationForm
 from django.contrib.auth import login, logout,authenticate
-from .forms import soporte
-from.models import Soporte
+from .forms import Soporte
+from.models import soporte
 
 def soportes(request):
      form= soporte()
